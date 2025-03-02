@@ -12,6 +12,9 @@ pub enum TokenType {
     Equals,
     OpenParen,
     CloseParen,
+
+    // End of File
+    EOF,
 }
 
 #[derive(Debug, PartialEq)]
@@ -88,5 +91,9 @@ pub fn tokenize(source_code: String) -> Vec<Token> {
         }
     }
 
+    tokens.push(Token {
+        value: "".to_string(),
+        token_type: TokenType::EOF,
+    });
     return tokens;
 }
